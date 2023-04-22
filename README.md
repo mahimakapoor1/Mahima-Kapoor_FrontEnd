@@ -60,16 +60,16 @@ WARNINGS:
           
 •	Cannot update a component (`WrappedListComponent`) while rendering a different component (`WrappedSingleListItem`).
 
-  <li
-       style={{ backgroundColor: isSelected ? 'green' : 'red'}}
-        onClick={onClickHandler(index)}
-      >
+             <li
+                  style={{ backgroundColor: isSelected ? 'green' : 'red'}}
+                  onClick={onClickHandler(index)}
+                  >
   
 =>
 
-  const handleClick = () => {
-      onClickHandler(index);
-   };  
+      const handleClick = () => {
+            onClickHandler(index);
+       };  
 
     return (
       <li
@@ -83,17 +83,18 @@ Q3 Modified code:
       import PropTypes from 'prop-types';
 
   // Single List Item
-  const WrappedSingleListItem = ({
-   index,
-    isSelected,
-    onClickHandler,
-    text,
-  }) => {
-   const handleClick = () => {
+            
+            const WrappedSingleListItem = ({
+            index,
+            isSelected,
+            onClickHandler,
+            text,
+            }) => {
+            const handleClick = () => {
       onClickHandler(index);
-    };  
+      };  
 
-    return (
+      return (
      <li
         style={{ backgroundColor: isSelected ? 'green' : 'red'}}
         onClick={handleClick}
@@ -103,20 +104,21 @@ Q3 Modified code:
     );
   };
 
-  WrappedSingleListItem.propTypes = {
-   index: PropTypes.number,
-    isSelected: PropTypes.bool,
-    onClickHandler: PropTypes.func.isRequired,
-    text: PropTypes.string.isRequired,
-  };
+      WrappedSingleListItem.propTypes = {
+      index: PropTypes.number,
+      isSelected: PropTypes.bool,
+      onClickHandler: PropTypes.func.isRequired,
+      text: PropTypes.string.isRequired,
+      };
 
-  const SingleListItem = memo(WrappedSingleListItem);
+      const SingleListItem = memo(WrappedSingleListItem);
 
-  // List Component
-  const WrappedListComponent = ({
-   items
-  }) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
+      // List Component
+        
+      const WrappedListComponent = ({
+      items
+      }) => {
+      const [selectedIndex, setSelectedIndex] = useState(null);
 
     useEffect(() => {
       setSelectedIndex(null);
@@ -146,15 +148,15 @@ Q3 Modified code:
     )
   };
 
-  WrappedListComponent.propTypes = {
-   items: PropTypes.arrayOf(PropTypes.shape({
-      text: PropTypes.string.isRequired,
-    })),
-  };
+       WrappedListComponent.propTypes = {
+            items: PropTypes.arrayOf(PropTypes.shape({
+            text: PropTypes.string.isRequired,
+            })),
+            };
 
-  WrappedListComponent.defaultProps = {
-    items: null,
-  };
+       WrappedListComponent.defaultProps = {
+      items: null,
+      };
 
   const List = memo(WrappedListComponent);
 

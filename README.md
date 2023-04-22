@@ -15,19 +15,19 @@ Q2 What problems / warnings are there with code?
     
 •	shapeOf and array are not  function.
 
-  WrappedListComponent.propTypes = {
-    items: PropTypes.array(PropTypes.shapeOf({
-      text: PropTypes.string.isRequired,
-    })),
-  };
+       WrappedListComponent.propTypes = {
+            items: PropTypes.array(PropTypes.shapeOf({
+            text: PropTypes.string.isRequired,
+             })),
+             };
 
 =>
 
-  WrappedListComponent.propTypes = {
-   items: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    })),
-  };
+      WrappedListComponent.propTypes = {
+      items: PropTypes.arrayOf(PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      })),
+      };
 
 •	Cannot read properties of null (reading 'map') at WrappedListComponent.
 
@@ -41,22 +41,22 @@ WARNINGS:
 
 •	Each child in a list should have a unique "key" prop.
 
-  <SingleListItem
-            onClickHandler={() => handleClick(index)}
-            text={item.text}
-            index={index}
-            isSelected={selectedIndex}
-        />  
+             <SingleListItem
+                        onClickHandler={() => handleClick(index)}
+                        text={item.text}
+                         index={index}
+                  isSelected={selectedIndex}
+                         />  
   
 =>
 
-  <SingleListItem
-            key={index}
-            onClickHandler={() => handleClick(index)}
-            text={item.text}
-            index={index}
-            isSelected={index===selectedIndex}
-          />
+            <SingleListItem
+                        key={index}
+                        onClickHandler={() => handleClick(index)}
+                        text={item.text}
+                        index={index}
+                        isSelected={index===selectedIndex}
+                        />
           
 •	Cannot update a component (`WrappedListComponent`) while rendering a different component (`WrappedSingleListItem`).
 
@@ -102,7 +102,7 @@ Q3 Modified code:
         {text}
       </li>
     );
-  };
+      };
 
       WrappedSingleListItem.propTypes = {
       index: PropTypes.number,
@@ -146,7 +146,7 @@ Q3 Modified code:
         ))}
       </ul>
     )
-  };
+      };
 
        WrappedListComponent.propTypes = {
             items: PropTypes.arrayOf(PropTypes.shape({
@@ -158,6 +158,6 @@ Q3 Modified code:
       items: null,
       };
 
-  const List = memo(WrappedListComponent);
+      const List = memo(WrappedListComponent);
 
-  export default List;
+      export default List;

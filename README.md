@@ -37,10 +37,12 @@ Q2 What problems / warnings are there with code?
 =>
 
     
-            WrappedListComponent.defaultProps = {
-             items: [{ text: "Item 1" }, { text: "Item 2" }],
+             WrappedListComponent.defaultProps = {
+            items: [{ text: "Item 1" },
+            { text: "Item 2" },
+            { text: "Item 3" },
+            { text: "Item 4" }],
             };
-
 
 WARNINGS:
 

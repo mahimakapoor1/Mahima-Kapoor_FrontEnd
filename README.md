@@ -31,11 +31,16 @@ Q2 What problems / warnings are there with code?
 
 •	Cannot read properties of null (reading 'map') at WrappedListComponent.
 
-    {items.map((item, index) => (
-
+            WrappedListComponent.defaultProps = {
+               items: null,
+            };
 =>
 
-    {items && items.map((item, index) => (
+    
+            WrappedListComponent.defaultProps = {
+             items: [{ text: "Item 1" }, { text: "Item 2" }],
+            };
+
 
 WARNINGS:
 
@@ -135,7 +140,7 @@ Q3 Modified code:
 
     return (
       <ul style={{ textAlign: 'left' }}>
-        {items && items.map((item, index) => (
+        {items.map((item, index) => (
           <SingleListItem
             key={index}
             onClickHandler={() => handleClick(index)}
@@ -154,9 +159,13 @@ Q3 Modified code:
             })),
             };
 
-       WrappedListComponent.defaultProps = {
-      items: null,
-      };
+       
+            WrappedListComponent.defaultProps = {
+            items: [{ text: "Item 1" },
+            { text: "Item 2" },
+            { text: "Item 3" },
+            { text: "Item 4" }],
+            };
 
       const List = memo(WrappedListComponent);
 

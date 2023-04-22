@@ -82,6 +82,7 @@ WARNINGS:
   	);
 
 Q3 Please fix, optimize, and/or modify the component as much as you think is necessary.
+
 	import React, { useState, useEffect, memo, useCallback } from 'react';
 	import PropTypes from 'prop-types';
 

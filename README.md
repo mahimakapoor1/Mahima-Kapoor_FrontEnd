@@ -6,7 +6,9 @@ The List component is a simple React component that displays a list of items and
 Q2 What problems / warnings are there with code?
 
 •	setSelectedIndex is not defined properly.
+
 const [setSelectedIndex, selectedIndex] = useState(); =>
+
 const [selectedIndex, setSelectedIndex] = useState(null);
 
 •	shapeOf is not a function and array is not a function.
@@ -17,6 +19,7 @@ const [selectedIndex, setSelectedIndex] = useState(null);
   	})),
 	};
 =>
+
 WrappedListComponent.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
@@ -25,20 +28,23 @@ WrappedListComponent.propTypes = {
 
 •	Cannot read properties of null (reading 'map') at WrappedListComponent.
 
-	{items.map((item, index) => (
-			
+	{items.map((item, index) => (		
 =>
+
 {items && items.map((item, index) => (
 
 WARNINGS:
 •	Each child in a list should have a unique "key" prop.
+
  	<SingleListItem
 	onClickHandler={() => handleClick(index)}
 	text={item.text}
 	index={index}
 	isSelected={selectedIndex}
 	/>
+	
 =>
+
 	<SingleListItem
           key={index}
           onClickHandler={() => handleClick(index)}
@@ -47,6 +53,7 @@ WARNINGS:
           isSelected={index===selectedIndex}
         />
 •	Cannot update a component (`WrappedListComponent`) while rendering a different component (`WrappedSingleListItem`).
+
 return (
     <li
       style={{ backgroundColor: isSelected ? 'green' : 'red'}}

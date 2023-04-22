@@ -20,11 +20,11 @@ const [selectedIndex, setSelectedIndex] = useState(null);
 	};
 =>
 
-WrappedListComponent.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.isRequired,
-  })),
-};
+	WrappedListComponent.propTypes = {
+         items: PropTypes.arrayOf(PropTypes.shape({
+          text: PropTypes.string.isRequired,
+        })),
+        };
 
 •	Cannot read properties of null (reading 'map') at WrappedListComponent.
 

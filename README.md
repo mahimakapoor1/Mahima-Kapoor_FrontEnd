@@ -7,7 +7,8 @@ Q2 What problems / warnings are there with code?
 
 •	setSelectedIndex is not defined properly.
 
-const [setSelectedIndex, selectedIndex] = useState(); =>
+const [setSelectedIndex, selectedIndex] = useState();
+=>
 
 const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -80,13 +81,13 @@ WARNINGS:
 
 Q3 Please fix, optimize, and/or modify the component as much as you think is necessary.
 
-import React, { useState, useEffect, memo, useCallback } from 'react';
-import PropTypes from 'prop-types';
+	import React, { useState, useEffect, memo, useCallback } from 'react';
+	import PropTypes from 'prop-types';
 
 // Single List Item
-const WrappedSingleListItem = ({
-index,
-isSelected,
+	const WrappedSingleListItem = ({
+	index,
+	isSelected,
 onClickHandler,
 text,
 }) => {
